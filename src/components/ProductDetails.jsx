@@ -56,35 +56,58 @@ const ProductDetails = ({ cart, setCart }) => {
         theme="colored"
       />
       
-      <div className="container con">
-        <div className="img">
-          <img src={product.imgSrc} alt="" />
+      <div className="container py-4">
+        <div className="row g-4">
+          {/* Product Image */}
+          <div className="col-md-6">
+            <div className="d-flex justify-content-center align-items-center h-100">
+              <img 
+                src={product.imgSrc} 
+                alt={product.title}
+                className="img-fluid"
+                style={{ maxHeight: "400px", objectFit: "contain" }}
+              />
+            </div>
+          </div>
+
+          {/* Product Details */}
+          <div className="col-md-6">
+            <div className="card h-100 border-0">
+              <div className="card-body d-flex flex-column justify-content-center">
+                <h2 className="card-title mb-3">{product.title}</h2>
+                <p className="card-text mb-4">{product.description}</p>
+                <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+                  <button className="btn btn-primary">
+                    {product.price} ₹
+                  </button>
+                  <button
+                    onClick={() =>
+                      addTocart(
+                        product.id,
+                        product.price,
+                        product.title,
+                        product.description,
+                        product.imgSrc
+                      )
+                    }
+                    className="btn btn-warning"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="text-center">
-          <h2 className="card-title">{product.title}</h2>
-          <p className="card-text">{product.description}</p>
-          <button className="btn btn-primary mx-3">
-            {product.price}
-            {" ₹"}
-          </button>
-          <button
-            onClick={() =>
-              addTocart(
-                product.id,
-                product.price,
-                product.title,
-                product.description,
-                product.imgSrc
-              )
-            }
-            className="btn btn-warning"
-          >
-            Add to cart
-          </button>
-        </div>
+
+        {/* Related Products */}
+        {relatedProducts.length > 0 && (
+          <div className="mt-5">
+            <h2 className="text-center mb-4">Related Products</h2>
+            <Product items={relatedProducts} cart={cart} setCart={setCart} />
+          </div>
+        )}
       </div>
-      <h1 className="text-center">Related Products</h1>
-      <Product items={relatedProducts} cart={cart} setCart={setCart} />
     </>
   );
 };
