@@ -94,9 +94,3 @@ e-kart/
 - **Cart Interface**: Intuitive cart management
 - **Toast Notifications**: User feedback for actions
 
-
-## 🙏 Acknowledgments
-
-- Bootstrap for the UI components
-- React community for the amazing tools and libraries
-- All contributors who have helped in the development
