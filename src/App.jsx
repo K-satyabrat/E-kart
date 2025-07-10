@@ -20,22 +20,18 @@ function App() {
           element={<Product cart={cart} setCart={setCart} items={data} />}
         />
 
-        {/* Product Details Page: Displays details of a specific product */}
         <Route
           path="/product/:id"
           element={<ProductDetails cart={cart} setCart={setCart} />}
         />
 
-        {/* Search Results Page: Displays filtered products based on search */}
         <Route
           path="/search/:term"
           element={<SearchItem cart={cart} setCart={setCart} />}
         />
 
-        {/* Cart Page: Displays items in the cart */}
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
 
-        {/* Fallback Route: Redirects to home if no route matches */}
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </Router>
@@ -43,4 +39,3 @@ function App() {
 }
 
 export default App;
-
